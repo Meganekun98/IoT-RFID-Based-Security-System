@@ -9,7 +9,7 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);
 int data1 = 0;
 int cardid[14];
 int repeat =0;
-int f=6;
+int f=6; //switch at pin 6
 void setup()
 {
   pinMode(2,OUTPUT);
@@ -24,7 +24,7 @@ digitalWrite(7,LOW);
 }
 void loop()
 {
-  int flag = digitalRead(f);
+  int flag = digitalRead(f);//flag from switch to change state of program 
   String content= "";
   
   // Scan for cards
@@ -43,11 +43,11 @@ void loop()
     
   if(flag==HIGH){
     present();
-  }
+  }//if flag switch is on the program work for attendance purpose
   
   else {
     outofbound();
-  }
+  }//if flag is low the the program check if student is out of classroom during class hours
 
 }
 
